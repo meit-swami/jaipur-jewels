@@ -27,31 +27,30 @@ This will create a `data-export.json` file in your project root with all your:
 
 ---
 
-## Step 2: Set Up PostgreSQL on Vercel
+## Step 2: Set Up MySQL on Vercel
 
-### Option A: Vercel Postgres (Recommended - Free Tier Available)
+### Option A: PlanetScale (Recommended for MySQL - Free Tier Available)
 
-1. **Go to Vercel Dashboard**
-   - Visit: https://vercel.com/dashboard
-   - Click on your project: **jewellery**
+1. **Sign up for PlanetScale**
+   - Visit: https://planetscale.com
+   - Sign up for a free account
 
-2. **Create Postgres Database**
-   - Click on the **Storage** tab
-   - Click **Create Database**
-   - Select **Postgres**
+2. **Create a Database**
+   - Click **Create database**
    - Name it: `jaipur-jewels-db`
-   - Choose region (closest to your users)
-   - Click **Create**
+   - Choose a region closest to your users
+   - Click **Create database**
 
 3. **Get Connection String**
-   - After creation, go to **Settings** → **Environment Variables**
-   - You'll see `POSTGRES_PRISMA_URL` automatically added
-   - Copy this value
+   - After creation, click **Connect**
+   - Select **Prisma** from the connection options
+   - Copy the connection string (starts with `mysql://`)
 
-4. **Add DATABASE_URL**
-   - In **Environment Variables**, click **Add New**
+4. **Add DATABASE_URL to Vercel**
+   - Go to your Vercel project → **Settings** → **Environment Variables**
+   - Click **Add New**
    - Key: `DATABASE_URL`
-   - Value: Paste the `POSTGRES_PRISMA_URL` value
+   - Value: Paste the MySQL connection string from PlanetScale
    - Select: **Production**, **Preview**, and **Development**
    - Click **Save**
 
@@ -59,24 +58,27 @@ This will create a `data-export.json` file in your project root with all your:
 
 If you prefer other options:
 
-- **Supabase** (Free tier): https://supabase.com
-- **Neon** (Free tier): https://neon.tech
-- **Railway**: https://railway.app
+- **PlanetScale** (MySQL - Recommended): https://planetscale.com
+- **Railway** (MySQL or PostgreSQL): https://railway.app
+- **Supabase** (PostgreSQL): https://supabase.com
+- **Neon** (PostgreSQL): https://neon.tech
 
-Just get the PostgreSQL connection string and add it as `DATABASE_URL` in Vercel.
+Just get the connection string and add it as `DATABASE_URL` in Vercel.
 
 ---
 
-## Step 3: Update Prisma Schema for PostgreSQL
+## Step 3: Update Prisma Schema for MySQL
 
 Update `prisma/schema.prisma`:
 
 ```prisma
 datasource db {
-  provider = "postgresql"  // Change from "sqlite"
+  provider = "mysql"  // Change from "sqlite"
   url      = env("DATABASE_URL")
 }
 ```
+
+**Note:** If you're using PostgreSQL instead, use `provider = "postgresql"`
 
 **Important:** Keep your local `.env` with SQLite for development:
 ```env
@@ -108,7 +110,7 @@ This generates the Prisma client for PostgreSQL.
 
 1. **Temporarily update your local `.env`:**
    ```env
-   DATABASE_URL="your-vercel-postgres-url-here"
+   DATABASE_URL="your-vercel-mysql-url-here"
    ```
 
 2. **Push schema:**
@@ -144,13 +146,13 @@ But this won't import data. You'll need to import manually after first deploymen
 1. **Set DATABASE_URL temporarily:**
    ```bash
    # Windows PowerShell
-   $env:DATABASE_URL="your-vercel-postgres-url"
+   $env:DATABASE_URL="your-vercel-mysql-url"
    npm run db:import
    ```
 
 2. **Or create `.env.vercel` temporarily:**
    ```env
-   DATABASE_URL="your-vercel-postgres-url"
+   DATABASE_URL="your-vercel-mysql-url"
    ```
    Then run:
    ```bash
@@ -163,7 +165,7 @@ But this won't import data. You'll need to import manually after first deploymen
 
 ### Method 2: Use Prisma Studio with Vercel URL
 
-1. Set `DATABASE_URL` to Vercel Postgres URL
+1. Set `DATABASE_URL` to your MySQL connection string
 2. Run: `npx prisma studio`
 3. Manually import via UI
 
@@ -195,7 +197,7 @@ npm run dev
 1. Push your code to GitHub
 2. Vercel will automatically deploy
 3. Check your Vercel deployment URL
-4. Data should load from PostgreSQL
+4. Data should load from MySQL
 
 ---
 
@@ -207,10 +209,10 @@ Your `.env` file:
 DATABASE_URL="file:./dev.db"
 ```
 
-### Vercel Production (PostgreSQL):
+### Vercel Production (MySQL):
 Vercel environment variables:
 ```env
-DATABASE_URL="postgresql://..."
+DATABASE_URL="mysql://..."
 ```
 
 The app will automatically use the correct database based on where it's running!
@@ -266,14 +268,14 @@ npm run db:seed
 ## ✅ Checklist
 
 - [ ] Exported data: `npm run db:export`
-- [ ] Created PostgreSQL database on Vercel
+- [ ] Created MySQL database (PlanetScale or other provider)
 - [ ] Added `DATABASE_URL` to Vercel environment variables
-- [ ] Updated `prisma/schema.prisma` to `postgresql`
+- [ ] Updated `prisma/schema.prisma` to `mysql`
 - [ ] Generated Prisma client: `npm run db:generate`
-- [ ] Pushed schema to Vercel: `npm run db:push` (with Vercel URL)
-- [ ] Imported data to Vercel: `npm run db:import` (with Vercel URL)
+- [ ] Pushed schema to Vercel: `npm run db:push` (with MySQL URL)
+- [ ] Imported data to Vercel: `npm run db:import` (with MySQL URL)
 - [ ] Tested locally (SQLite works)
-- [ ] Tested on Vercel (PostgreSQL works)
+- [ ] Tested on Vercel (MySQL works)
 - [ ] Committed `data-export.json` to Git (optional backup)
 
 ---
@@ -284,7 +286,7 @@ npm run db:seed
 - You can commit it to Git for version control
 - The import script is idempotent - safe to run multiple times
 - Local development continues using SQLite
-- Vercel production uses PostgreSQL automatically
+- Vercel production uses MySQL automatically
 
 ---
 

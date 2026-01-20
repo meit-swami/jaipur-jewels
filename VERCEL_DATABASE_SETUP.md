@@ -8,11 +8,35 @@ SQLite is a file-based database that requires write access to the filesystem. **
 - ❌ Database changes won't persist between deployments
 - ❌ Your app will fail when trying to write data
 
-## ✅ Solution: Use PostgreSQL on Vercel
+## ✅ Solution: Use MySQL on Vercel
 
-You need to use a cloud database for Vercel deployments. The recommended option is **Vercel Postgres**.
+You need to use a cloud database for Vercel deployments. The recommended options are **PlanetScale** (MySQL) or **Vercel Postgres** (PostgreSQL).
 
-## Step 1: Set Up Vercel Postgres
+## Step 1: Set Up MySQL Database
+
+### Option A: PlanetScale (Recommended for MySQL - Free Tier Available)
+
+1. **Sign up for PlanetScale**
+   - Visit: https://planetscale.com
+   - Sign up for a free account
+
+2. **Create a Database**
+   - Click **Create database**
+   - Name it: `jaipur-jewels-db`
+   - Choose a region closest to your users
+   - Click **Create database**
+
+3. **Get Connection String**
+   - After creation, click **Connect**
+   - Select **Prisma** from the connection options
+   - Copy the connection string (starts with `mysql://`)
+
+4. **Add to Vercel**
+   - Go to your Vercel project → **Settings** → **Environment Variables**
+   - Add `DATABASE_URL` with the PlanetScale connection string
+   - Select: **Production**, **Preview**, and **Development**
+
+### Option B: Vercel Postgres (PostgreSQL)
 
 1. **Go to your Vercel Dashboard**
    - Navigate to your project: https://vercel.com/dashboard
@@ -27,20 +51,22 @@ You need to use a cloud database for Vercel deployments. The recommended option 
    - Click **Create**
 
 3. **Get Connection String**
-   - After creation, go to the **.env.local** tab in your project settings
-   - Vercel will automatically add `POSTGRES_PRISMA_URL` and `POSTGRES_URL_NON_POOLING`
-   - Copy the `POSTGRES_PRISMA_URL` value
+   - After creation, go to **Settings** → **Environment Variables**
+   - You'll see `POSTGRES_PRISMA_URL` automatically added
+   - Copy this value and add as `DATABASE_URL`
 
 ## Step 2: Update Prisma Schema
 
-Update `prisma/schema.prisma` to support PostgreSQL:
+Update `prisma/schema.prisma` to support MySQL:
 
 ```prisma
 datasource db {
-  provider = "postgresql"  // Changed from "sqlite"
+  provider = "mysql"  // Changed from "sqlite"
   url      = env("DATABASE_URL")
 }
 ```
+
+**Note:** If using PostgreSQL instead, use `provider = "postgresql"`
 
 **Note:** You can keep SQLite for local development by using different `.env` files.
 
@@ -48,18 +74,23 @@ datasource db {
 
 ### On Vercel:
 1. Go to **Project Settings** → **Environment Variables**
-2. Add `DATABASE_URL` with the value from `POSTGRES_PRISMA_URL`
+2. Add `DATABASE_URL` with your MySQL connection string (from PlanetScale or other provider)
 3. Make sure it's set for **Production**, **Preview**, and **Development**
 
 ### Local Development:
 Keep your `.env` file with SQLite:
 ```env
-DATABASE_URL="file:./prisma/dev.db"
+DATABASE_URL="file:./dev.db"
+```
+
+**Note:** For local MySQL testing, you can use:
+```env
+DATABASE_URL="mysql://user:password@localhost:3306/jaipur_jewels"
 ```
 
 ## Step 4: Update Database Schema
 
-After switching to PostgreSQL, you need to:
+After switching to MySQL, you need to:
 
 1. **Generate Prisma Client:**
    ```bash
@@ -83,7 +114,7 @@ You can keep SQLite for local development and PostgreSQL for production:
 ### Option A: Use `.env.local` for Production Override
 Create `.env.local` (don't commit this):
 ```env
-DATABASE_URL="postgresql://user:password@host:5432/dbname"
+DATABASE_URL="mysql://user:password@host:3306/dbname"
 ```
 
 ### Option B: Use Vercel Environment Variables
@@ -91,14 +122,15 @@ Set `DATABASE_URL` in Vercel dashboard, and it will override your local `.env` f
 
 ## Alternative: Other Cloud Databases
 
-If you prefer not to use Vercel Postgres, you can use:
+If you prefer other options:
 
-- **Supabase** (Free tier available)
+- **PlanetScale** (MySQL - Recommended, free tier available)
+- **Railway** (MySQL or PostgreSQL)
+- **Supabase** (PostgreSQL, free tier available)
 - **Neon** (Serverless Postgres, free tier)
-- **Railway** (PostgreSQL)
-- **PlanetScale** (MySQL)
+- **Vercel Postgres** (PostgreSQL)
 
-Just update `DATABASE_URL` in Vercel environment variables.
+Just update `DATABASE_URL` in Vercel environment variables and set the correct `provider` in `prisma/schema.prisma`.
 
 ## Troubleshooting
 
@@ -117,10 +149,10 @@ Just update `DATABASE_URL` in Vercel environment variables.
 
 ## Quick Checklist
 
-- [ ] Created Vercel Postgres database
+- [ ] Created MySQL database (PlanetScale or other provider)
 - [ ] Updated `DATABASE_URL` in Vercel environment variables
-- [ ] Updated Prisma schema to use `postgresql`
+- [ ] Updated Prisma schema to use `mysql`
 - [ ] Ran `npm run db:generate`
 - [ ] Ran `npx prisma db push`
-- [ ] Ran `npm run db:seed`
+- [ ] Ran `npm run db:import` (to import your existing data)
 - [ ] Tested deployment

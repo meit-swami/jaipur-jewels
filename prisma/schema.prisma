@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -69,8 +69,8 @@ model ProductVideo {
   createdAt DateTime @default(now())
 }
 
-// StockStatus is stored as String in SQLite (enum not supported)
-// Valid values: "AVAILABLE", "LOW_STOCK", "OUT_OF_STOCK"
+// StockStatus - Valid values: "AVAILABLE", "LOW_STOCK", "OUT_OF_STOCK"
+// Note: Can be converted to enum in MySQL if needed
 
 model DeepLink {
   id          String   @id @default(uuid())
