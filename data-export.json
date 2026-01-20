@@ -1,0 +1,347 @@
+{
+  "exportedAt": "2026-01-20T12:33:00.209Z",
+  "categories": [
+    {
+      "id": "18ddfda2-153b-4e44-91c4-469dc6489e1b",
+      "name": "Rings",
+      "slug": "rings",
+      "description": "Exquisite rings crafted with precision and elegance",
+      "image": null,
+      "order": 1,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "491a91bf-a28e-4727-bd5f-2228db3dc942",
+      "name": "Necklaces",
+      "slug": "necklaces",
+      "description": "Timeless necklaces for every occasion",
+      "image": null,
+      "order": 2,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "e742f60a-0207-46ae-b276-20f44be0fb0f",
+      "name": "Earrings",
+      "slug": "earrings",
+      "description": "Stunning earrings that frame your face beautifully",
+      "image": null,
+      "order": 3,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "3175a4ee-e3fd-4688-b4fa-15991db94509",
+      "name": "Bracelets",
+      "slug": "bracelets",
+      "description": "Elegant bracelets that add sophistication to any look",
+      "image": null,
+      "order": 4,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "c8e836d1-8daa-4457-8d70-a2b7e131f661",
+      "name": "Anklets",
+      "slug": "anklets",
+      "description": "Delicate anklets that adorn your ankles with grace",
+      "image": null,
+      "order": 5,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "360ad1e5-6626-4663-85fc-d8dd6c188cb7",
+      "name": "Tiaras",
+      "slug": "tiaras",
+      "description": "Regal tiaras for special occasions and celebrations",
+      "image": null,
+      "order": 6,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "c1602525-e8db-42bb-8e52-d58d7812e359",
+      "name": "Crowns",
+      "slug": "crowns",
+      "description": "Majestic crowns fit for royalty and special moments",
+      "image": null,
+      "order": 7,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "44fd929d-cfb8-4e05-ae6c-845a07449154",
+      "name": "Pendants",
+      "slug": "pendants",
+      "description": "Beautiful pendants to complement your style",
+      "image": null,
+      "order": 8,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "e196eea8-d0be-4f40-a7f6-fdf86124811a",
+      "name": "Brooches",
+      "slug": "brooches",
+      "description": "Elegant brooches to add sophistication to any outfit",
+      "image": null,
+      "order": 9,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    },
+    {
+      "id": "e504a4c8-97e9-4dd2-926e-4c12ea543459",
+      "name": "Hair Accessories",
+      "slug": "hair-accessories",
+      "description": "Stylish hair accessories for every occasion",
+      "image": null,
+      "order": 10,
+      "createdAt": "2026-01-20T12:29:39.676Z",
+      "updatedAt": "2026-01-20T12:29:39.676Z"
+    }
+  ],
+  "products": [
+    {
+      "name": "Layered Gemstone Necklace",
+      "slug": "layered-gemstone-necklace",
+      "price": 6200,
+      "description": null,
+      "aiDescription": "Create depth and dimension with this stunning layered gemstone necklace. Featuring three graduated strands of emerald-cut sapphires, each strand is carefully spaced to create visual interest without overwhelming. Set in white gold with secure prong settings, this contemporary design allows each gemstone to showcase its individual brilliance while working in perfect harmony.",
+      "tags": "[\"sapphire\",\"gemstone\",\"layered\",\"white gold\",\"contemporary\",\"luxury\"]",
+      "categorySlug": "necklaces",
+      "stockCount": 6,
+      "lowStockThreshold": 5,
+      "featured": false,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+          "alt": "Layered Gemstone Necklace - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800",
+          "alt": "Layered Gemstone Necklace - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "name": "Rose Gold Vintage Ring",
+      "slug": "rose-gold-vintage-ring",
+      "price": 4500,
+      "description": null,
+      "aiDescription": "Embrace the romantic allure of this rose gold vintage-inspired ring. Artfully designed with intricate filigree details and accented by a cluster of smaller diamonds, this piece captures the essence of bygone elegance while remaining perfectly suited for modern wear. The warm rose gold hue complements all skin tones, making it a versatile addition to any collection.",
+      "tags": "[\"rose gold\",\"vintage\",\"filigree\",\"diamonds\",\"romantic\",\"elegant\"]",
+      "categorySlug": "rings",
+      "stockCount": 8,
+      "lowStockThreshold": 5,
+      "featured": false,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
+          "alt": "Rose Gold Vintage Ring - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
+          "alt": "Rose Gold Vintage Ring - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "name": "Infinity Gold Bracelet",
+      "slug": "infinity-gold-bracelet",
+      "price": 3200,
+      "description": null,
+      "aiDescription": "Symbolizing eternal love and infinite possibilities, this gold bracelet features an elegantly twisted infinity motif crafted from 18-karat yellow gold. The fluid, organic design wraps around the wrist with supple grace, while the polished finish reflects light beautifully. A perfect everyday luxury piece that speaks to both tradition and contemporary style.",
+      "tags": "[\"gold\",\"bracelet\",\"infinity\",\"yellow gold\",\"elegant\",\"symbolic\"]",
+      "categorySlug": "bracelets",
+      "stockCount": 12,
+      "lowStockThreshold": 5,
+      "featured": false,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1611955167811-4711904bb9f0?w=800",
+          "alt": "Infinity Gold Bracelet - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=800",
+          "alt": "Infinity Gold Bracelet - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "name": "Starburst Diamond Earrings",
+      "slug": "starburst-diamond-earrings",
+      "price": 9800,
+      "description": null,
+      "aiDescription": "Illuminate your presence with these mesmerizing starburst diamond earrings. Radiating outward from a central brilliant-cut diamond, delicate pavé-set diamonds create a celestial sparkle that catches the light from every angle. Crafted in 18-karat white gold, these statement earrings embody modern luxury while maintaining an ethereal lightness.",
+      "tags": "[\"diamond\",\"earrings\",\"pavé\",\"white gold\",\"luxury\",\"statement\"]",
+      "categorySlug": "earrings",
+      "stockCount": 5,
+      "lowStockThreshold": 5,
+      "featured": true,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800",
+          "alt": "Starburst Diamond Earrings - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=800",
+          "alt": "Starburst Diamond Earrings - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "name": "Cascade Pearl Necklace",
+      "slug": "cascade-pearl-necklace",
+      "price": 8500,
+      "description": null,
+      "aiDescription": "Draped in sophistication, this cascade pearl necklace showcases lustrous freshwater pearls of varying sizes, hand-selected for their exceptional luster and color uniformity. Each pearl is meticulously knotted and strung with silk, a traditional technique that protects and enhances the pearls' natural beauty. The graduated design creates a waterfall effect that gracefully complements the décolletage.",
+      "tags": "[\"pearl\",\"necklace\",\"elegant\",\"classic\",\"luxury\",\"sophisticated\"]",
+      "categorySlug": "necklaces",
+      "stockCount": 7,
+      "lowStockThreshold": 5,
+      "featured": true,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800",
+          "alt": "Cascade Pearl Necklace - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800",
+          "alt": "Cascade Pearl Necklace - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    },
+    {
+      "name": "Ethereal Diamond Solitaire Ring",
+      "slug": "ethereal-diamond-solitaire-ring",
+      "price": 12500,
+      "description": null,
+      "aiDescription": "A masterpiece of timeless elegance, this ethereal diamond solitaire ring features a brilliant-cut diamond of exceptional clarity, cradled in a delicate platinum setting. The minimalist design allows the natural beauty of the stone to take center stage, while the comfort-fit band ensures all-day wearability. Perfect for expressing your most heartfelt commitment.",
+      "tags": "[\"diamond\",\"solitaire\",\"engagement\",\"platinum\",\"luxury\",\"classic\"]",
+      "categorySlug": "rings",
+      "stockCount": 3,
+      "lowStockThreshold": 5,
+      "featured": true,
+      "threeDModel": null,
+      "metadata": null,
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800",
+          "alt": "Ethereal Diamond Solitaire Ring - Image 1",
+          "order": 0,
+          "is360": false
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800",
+          "alt": "Ethereal Diamond Solitaire Ring - Image 2",
+          "order": 1,
+          "is360": false
+        }
+      ],
+      "videos": []
+    }
+  ],
+  "deepLinks": [
+    {
+      "name": "Shop All Rings",
+      "slug": "rings",
+      "categorySlug": "rings",
+      "description": "Browse our complete collection of rings",
+      "order": 1,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Necklaces",
+      "slug": "necklaces",
+      "categorySlug": "necklaces",
+      "description": "Explore elegant necklaces",
+      "order": 2,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Earrings",
+      "slug": "earrings",
+      "categorySlug": "earrings",
+      "description": "Discover stunning earrings",
+      "order": 3,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Bracelets",
+      "slug": "bracelets",
+      "categorySlug": "bracelets",
+      "description": "Find your perfect bracelet",
+      "order": 4,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Anklets",
+      "slug": "anklets",
+      "categorySlug": "anklets",
+      "description": "Explore delicate anklets",
+      "order": 5,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Tiaras",
+      "slug": "tiaras",
+      "categorySlug": "tiaras",
+      "description": "Discover regal tiaras",
+      "order": 6,
+      "isActive": true
+    },
+    {
+      "name": "Shop All Crowns",
+      "slug": "crowns",
+      "categorySlug": "crowns",
+      "description": "Browse majestic crowns",
+      "order": 7,
+      "isActive": true
+    },
+    {
+      "name": "Featured Collection",
+      "slug": "featured",
+      "categorySlug": null,
+      "description": "Handpicked featured pieces",
+      "order": 8,
+      "isActive": true
+    }
+  ]
+}
