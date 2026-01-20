@@ -4,21 +4,29 @@ import { prisma } from "@/lib/prisma";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
-  // Get all products
-  const products = await prisma.product.findMany({
-    select: {
-      slug: true,
-      updatedAt: true,
-    },
-  });
+  let products: Array<{ slug: string; updatedAt: Date }> = [];
+  let categories: Array<{ slug: string; updatedAt: Date | null }> = [];
 
-  // Get all categories
-  const categories = await prisma.category.findMany({
-    select: {
-      slug: true,
-      updatedAt: true,
-    },
-  });
+  try {
+    // Get all products
+    products = await prisma.product.findMany({
+      select: {
+        slug: true,
+        updatedAt: true,
+      },
+    });
+
+    // Get all categories
+    categories = await prisma.category.findMany({
+      select: {
+        slug: true,
+        updatedAt: true,
+      },
+    });
+  } catch (error) {
+    // If database is not available during build, return basic sitemap
+    console.error("Error fetching sitemap data:", error);
+  }
 
   const productUrls = products.map((product) => ({
     url: `${baseUrl}/products/${product.slug}`,
