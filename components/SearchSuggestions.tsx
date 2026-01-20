@@ -9,6 +9,7 @@ interface Product {
   name: string;
   slug: string;
   price: number;
+  stockStatus: string;
   images: Array<{ url: string; alt: string | null }>;
   category: { name: string; slug: string };
 }
