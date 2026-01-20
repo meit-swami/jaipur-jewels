@@ -1,8 +1,25 @@
 import { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
+function getBaseUrl(): string {
+  // Use custom URL if set
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL;
+  }
+  
+  // Vercel automatically sets VERCEL_URL (without protocol)
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  
+  // Fallback to localhost for development
+  return process.env.NODE_ENV === "production" 
+    ? "https://localhost:3000" 
+    : "http://localhost:3000";
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  const baseUrl = getBaseUrl();
 
   let products: Array<{ slug: string; updatedAt: Date }> = [];
   let categories: Array<{ slug: string; updatedAt: Date | null }> = [];
