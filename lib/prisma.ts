@@ -5,8 +5,7 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
 };
 
-// Fix DATABASE_URL for SQLite - ensure absolute path
-// This is needed because relative paths don't work reliably in production
+// Fix DATABASE_URL for SQLite - ensure absolute path (not used for MySQL/PostgreSQL)
 function fixDatabaseUrl() {
   const dbUrl = process.env.DATABASE_URL;
   
@@ -18,13 +17,13 @@ function fixDatabaseUrl() {
     } else {
       throw new Error(
         "DATABASE_URL is required in production. " +
-        "Please set up a PostgreSQL database (e.g., Vercel Postgres) and configure DATABASE_URL."
+        "Please set up a MySQL database (e.g., Hostinger) and configure DATABASE_URL."
       );
     }
     return;
   }
 
-  // Fix SQLite relative paths
+  // Fix SQLite relative paths only (skip for mysql://, postgresql://, etc.)
   if (dbUrl.startsWith("file:./") || dbUrl.startsWith("file:../")) {
     const relativePath = dbUrl.replace("file:", "");
     const absolutePath = path.join(process.cwd(), relativePath);

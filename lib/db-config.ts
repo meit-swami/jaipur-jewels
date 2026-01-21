@@ -1,6 +1,6 @@
 /**
  * Database configuration helper
- * Supports both SQLite (local development) and PostgreSQL (Vercel production)
+ * Supports MySQL (production, e.g. Hostinger), and SQLite (local development)
  */
 
 export function getDatabaseConfig() {
@@ -10,12 +10,10 @@ export function getDatabaseConfig() {
     throw new Error("DATABASE_URL environment variable is not set");
   }
 
-  // Check if it's a PostgreSQL connection (starts with postgresql:// or postgres://)
-  const isPostgres = dbUrl.startsWith("postgresql://") || dbUrl.startsWith("postgres://");
-  
-  // For SQLite, ensure absolute path
-  if (!isPostgres && dbUrl.startsWith("file:")) {
-    // Already handled in prisma.ts
+  // MySQL: mysql://
+  // SQLite: file:
+  // For SQLite, path fixes are handled in prisma.ts
+  if (dbUrl.startsWith("file:")) {
     return { url: dbUrl };
   }
 
