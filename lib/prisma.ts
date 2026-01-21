@@ -15,10 +15,10 @@ function fixDatabaseUrl() {
       const defaultPath = path.join(process.cwd(), "prisma", "dev.db");
       process.env.DATABASE_URL = `file:${defaultPath}`;
     } else {
-      throw new Error(
-        "DATABASE_URL is required in production. " +
-        "Please set up a MySQL database (e.g., Hostinger) and configure DATABASE_URL."
-      );
+      // Build (e.g. Vercel) can run before DATABASE_URL is available. Use a
+      // placeholder so the build succeeds. At runtime, set DATABASE_URL in your
+      // host's env (e.g. Vercel → Settings → Environment Variables).
+      process.env.DATABASE_URL = "mysql://localhost:3306/_";
     }
     return;
   }
