@@ -19,10 +19,11 @@ export async function GET(request: Request) {
     }
     
     if (search) {
+      // MySQL: 'mode: insensitive' is not supported; default contains is case-insensitive with typical collation
       where.OR = [
-        { name: { contains: search, mode: "insensitive" } },
-        { description: { contains: search, mode: "insensitive" } },
-        { aiDescription: { contains: search, mode: "insensitive" } },
+        { name: { contains: search } },
+        { description: { contains: search } },
+        { aiDescription: { contains: search } },
       ];
     }
 

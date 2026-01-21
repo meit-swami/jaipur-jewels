@@ -22,10 +22,11 @@ async function getProducts(searchParams: SearchParams) {
     }
     
     if (searchParams.search) {
+      // MySQL: 'mode: insensitive' is not supported; default contains is case-insensitive with typical collation
       where.OR = [
-        { name: { contains: searchParams.search, mode: "insensitive" } },
-        { description: { contains: searchParams.search, mode: "insensitive" } },
-        { aiDescription: { contains: searchParams.search, mode: "insensitive" } },
+        { name: { contains: searchParams.search } },
+        { description: { contains: searchParams.search } },
+        { aiDescription: { contains: searchParams.search } },
       ];
     }
 
